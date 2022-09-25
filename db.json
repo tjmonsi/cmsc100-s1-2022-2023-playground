@@ -1,0 +1,22 @@
+{
+  "todos": {
+    "4c1cd113-d0c3-458b-88fc-0801adab20c8": {
+      "title": "Title",
+      "text": "This is a text",
+      "createDate": 1664098170646,
+      "updateDate": 1664098170646
+    },
+    "266b3778-c455-4d41-875f-96920c73b342": {
+      "title": "Title",
+      "text": "This is a text",
+      "createDate": 1664098190362,
+      "updateDate": 1664098190362
+    },
+    "1832dbac-afbd-4c76-8be9-e9bf162feb23": {
+      "title": "This is a new title",
+      "text": "This is a text",
+      "createDate": 1664098387607,
+      "updateDate": 1664100162065
+    }
+  }
+}

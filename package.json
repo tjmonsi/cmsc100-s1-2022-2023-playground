@@ -1,0 +1,28 @@
+{
+  "name": "cmsc100-s1-2022-2023-playground",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tjmonsi/cmsc100-s1-2022-2023-playground.git"
+  },
+  "author": "TJ Monserrat",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/tjmonsi/cmsc100-s1-2022-2023-playground/issues"
+  },
+  "homepage": "https://github.com/tjmonsi/cmsc100-s1-2022-2023-playground#readme",
+  "dependencies": {
+    "fastify": "^4.6.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
