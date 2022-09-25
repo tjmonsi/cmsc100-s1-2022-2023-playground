@@ -6,7 +6,7 @@ const api = '/api';
 const dbFile = 'db.json';
 
 export const build = async () => {
-  const fastify = Fastify({ logger: true });  
+  const fastify = Fastify({ logger: true });
 
   // Create Todo
   fastify.post(`${api}/todo`, async (request, reply) => {
@@ -15,10 +15,6 @@ export const build = async () => {
 
     const dbText = readFileSync(dbFile, 'utf8');
     const db = JSON.parse(dbText);
-
-    if (!db.todos) {
-      db.todos = {};
-    }
 
     const id = v4();
 
@@ -45,10 +41,6 @@ export const build = async () => {
     const dbText = readFileSync(dbFile, 'utf8');
     const db = JSON.parse(dbText);
 
-    if (!db.todos) {
-      db.todos = {};
-    }
-
     return Object
       .entries(db.todos)
       .map(([id, todo]) => ({
@@ -65,10 +57,6 @@ export const build = async () => {
     const dbText = readFileSync(dbFile, 'utf8');
     const db = JSON.parse(dbText);
 
-    if (!db.todos) {
-      db.todos = {};
-    }
-
     return {
       id,
       ...db.todos[id]
@@ -82,10 +70,6 @@ export const build = async () => {
 
     const dbText = readFileSync(dbFile, 'utf8');
     const db = JSON.parse(dbText);
-
-    if (!db.todos) {
-      db.todos = {};
-    }
 
     db.todos[id].title = title || db.todos[id].title;
     db.todos[id].text = text || db.todos[id].text;
@@ -101,5 +85,22 @@ export const build = async () => {
     };
   });
 
+  fastify.delete(`${api}/todo/:id`, async (request, response) => {
+    const { params } = request;
+    const { id } = params;
+
+    const dbText = readFileSync(dbFile, 'utf8');
+    const db = JSON.parse(dbText);
+
+    delete db.todos[id];
+
+    const newDBText = JSON.stringify(db, null, 2);
+    writeFileSync(dbFile, newDBText, 'utf8');
+
+    return {
+      success: true
+    };
+  });
+
   return fastify;
-}
+};
